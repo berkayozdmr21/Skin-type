@@ -1,0 +1,4 @@
+opencv-contrib-python>=4.8,<5
+numpy>=1.24
+scikit-image>=0.21
+gradio>=5.0
