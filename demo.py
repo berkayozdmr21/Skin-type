@@ -57,10 +57,12 @@ def _draw_dots(img, blobs, color, base_r):
         cv2.circle(img, c, r, color, -1, lineType=cv2.LINE_AA)
 
 
-def draw_overlay(image_bgr, result, scores=None):
+def draw_overlay(image_bgr, result, scores=None, include_panel=True):
     """result: karsidan fotonun analiz_image() sonucu (ROI/isaretler bundan cizilir).
     scores: verilirse (cok-poz birlesik skorlar) panelde ve kizariklik yogunlugunda
-    bunlar kullanilir; verilmezse result['scores']."""
+    bunlar kullanilir; verilmezse result['scores'].
+    include_panel: False ise sag taraftaki OpenCV skor paneli eklenmez, sadece
+    isaretlenmis fotograf dondurulur (dar/mobil arayuzlerde HTML panel yeterli)."""
     out = image_bgr.copy()
     landmarks = result["landmarks"]
     rois = result["rois"]
@@ -135,6 +137,9 @@ def draw_overlay(image_bgr, result, scores=None):
     # nitelik isaretleriyle karismasin ve gozlukle cakismasin diye cizilmez.
     for (x, y) in landmarks[:17].astype(int):
         cv2.circle(out, (x, y), 2, (255, 255, 255), -1, lineType=cv2.LINE_AA)
+
+    if not include_panel:
+        return out
 
     # 6) Skor paneli (sag taraf) - renkli daire = gorseldeki isaret rengi (lejant)
     panel_w, line_h = 340, 34
