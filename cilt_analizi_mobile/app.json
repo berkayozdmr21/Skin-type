@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "cilt_analizi_mobile",
+    "slug": "cilt_analizi_mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.berkay21.ciltanalizi",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Cilt analizi için galeriden fotoğraf seçebilmeniz amacıyla erişim istenir.",
+          "cameraPermission": "Cilt analizi için kameradan fotoğraf çekebilmeniz amacıyla erişim istenir."
+        }
+      ],
+      "expo-asset"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "ba26d5b9-44ff-4501-8f3b-af22c682dcbc"
+      }
+    },
+    "owner": "berkay.21"
+  }
+}

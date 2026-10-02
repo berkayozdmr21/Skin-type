@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["FaceLandmarksNativeModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.facelandmarksnative.FaceLandmarksNativeModule"]
+  }
+}
